@@ -1,0 +1,31 @@
+(defwidget network_tool []
+  (box :class "network_selector_box" :orientation "v" 
+       :space-evenly false :spacing 10
+    (box :orientation "h" :space-evenly false
+      (label :class "network-title" :text "Networks" 
+             :vexpand false 
+             :halign "center")
+      (button :class "button" :hexpand true 
+              :halign "end" :onclick "eww update reveal_network=false" "X")
+    )
+    (box :class "networks" :orientation "v" 
+         :space-evenly false :spacing 10
+      (for each in networks_poll
+        (network_button :SSID {each["SSID"]})
+      ) 
+    )
+  )
+)
+
+(defwidget network_button [SSID]
+  (box :orientation "h"
+    (button :class "button" 
+            :onclick "nmcli device wifi connect \"${SSID}\" --ask" "${SSID}")  
+  )
+)
+
+(defwidget network_revealer []
+  (revealer :reveal reveal_network :transition "slidedown"
+      (network_tool)
+  )
+)

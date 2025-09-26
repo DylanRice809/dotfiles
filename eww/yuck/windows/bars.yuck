@@ -1,0 +1,49 @@
+(defwidget taskbar_layout []
+  (box :class "taskbar" :orientation "h"
+    (box :class "workspaces" :orientation "h" 
+         :halign "start" :hexpand false
+      (for w in hypr_events
+        (workspace :id {w["id"]}
+                   :class 'workspace ${w["class"]}')
+      )
+    )
+    (box :class "center" :orientation "v" 
+         :space-evenly false :halign "center"
+      (revealer :reveal {!reveal_network} :transition "slideup"
+        (label :class "centerpiece" :text {active_window} 
+              :hexpand false :space-evenly true)
+      )
+    )
+    (box :class "end" :orientation "h" 
+         :halign "end" :space-evenly false :spacing 10
+      (network)
+      (seperator)
+      (volume)
+      (seperator)
+      (_battery :capacity {EWW_BATTERY.BAT1.capacity}
+                :status {EWW_BATTERY.BAT1.status}
+                :charging "" :low "" :med "" :high "")
+      (seperator)
+      (label :class "clock" :text "${_time.hour} : ${_time.min}" 
+             :halign "center")
+    )
+  )
+)
+
+(defwidget special_widget []
+  (box
+    (box :class "special_left" :space-evenly false 
+        :hexpand true :orientation "h" :halign "start" :spacing 20
+        :valign "end"
+      (launcher_button :app_name "blueman-manager"
+                      :glyph "")
+      (launcher_button :app_name "kitty nvim ~/.config/hypr/hyprland.conf" 
+                      :glyph "")
+    )
+    (box :class "special_right" :space-evenly false :valign "end"
+         :hexpand true :orientation "h" :halign "end" :spacing 20
+      (launcher_button :app_name "steam" :glyph "")
+      (launcher_button :app_name "~/Apps/curse-forge/AppRun" :glyph "CF")
+    )
+  )
+)

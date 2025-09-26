@@ -1,0 +1,51 @@
+(defwidget workspace [id class]
+  (label :text id :class class)
+)
+
+(defwidget seperator [] 
+  (label :text "|" :style "color: #EADBB2")
+)
+
+(defwidget _battery [capacity status low med high charging]
+  (label :class "battery" 
+         :text "${capacity}% ${status == 'Charging' ? charging :
+         capacity < 15 ? low : capacity < 60 ? med : high}")
+)
+
+(defwidget network []
+  (eventbox :class "network" :space-evenly false 
+            :onclick "eww update reveal_network=true" 
+    (label :text "${network_connection["name"] == "lo..." ? "⚠" :
+            network_connection["name"]}  ")
+  )
+)
+
+(defwidget volume []
+  (eventbox :orientation "h" :onhover "eww update reveal_volume=true" 
+            :onhoverlost "eww update reveal_volume=false" 
+            :onrightclick "hyprctl dispatch exec pavucontrol" 
+            :onmiddleclick "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    (box :orientation "h" :space-evenly false
+      (revealer :transition "slideleft" 
+                :reveal {!reveal_volume} 
+                :duration "0.5s"
+        (box :orientation "h" 
+          (label :class "network" :text "${get_volume['volume']}%")
+          (label :class "big-sym" 
+                 :text "${get_volume['mute'] == "yes" ? "󰖁" : "󰕾"}")
+        )
+      )
+      (revealer :transition "slideleft" :reveal reveal_volume 
+                :duration "0.5s"
+        (box :space-evenly false
+          (scale :class "slider" :value {get_volume["volume"]}
+                 :draw-value true :value-pos "left" :width 150 
+                 :min 0 :max 150 :orientation "h" 
+                 :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%")
+          (label :class "big-sym" 
+                 :text "${get_volume['mute'] == "yes" ? "󰖁" : "󰕾"} ")
+        )
+      )
+    )
+  )
+)

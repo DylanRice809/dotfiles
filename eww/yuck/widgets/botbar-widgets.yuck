@@ -1,0 +1,4 @@
+(defwidget launcher_button [app_name glyph]
+  (button :class "bottom_widgets" 
+          :onclick "hyprctl dispatch exec ${app_name}" "${glyph}")
+)

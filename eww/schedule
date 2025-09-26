@@ -1,0 +1,93 @@
+[
+  {
+    "day":"Mon",
+    "classes":[
+      {
+        "class":"Systems",
+        "type":"Lab",
+        "location":"Boyd Orr - 720",
+        "start":9
+      },
+      {
+        "class":"Systems",
+        "type":"Lecture",
+        "location":"Joseph Black - B419",
+        "start":13
+      },
+      {
+        "class":"Systems",
+        "type":"Lecture",
+        "location":"Charles Wilson - 201",
+        "start":17
+      }
+    ]
+  },
+  {
+    "day":"Tue",
+    "classes":[
+      {
+        "class":"Data Fundamentals",
+        "type":"Lab",
+        "location":"Boyd Orr - 720",
+        "start":10
+      },
+      {
+        "class":"HCS",
+        "type":"Lab",
+        "location":"Boyd Orr - 720",
+        "start":16
+      }
+    ]
+  },
+  {
+    "day":"Wed",
+    "classes":[
+      {
+        "class":"Team Project",
+        "type":"Project Work",
+        "location":"Boyd Orr - 715",
+        "start":10
+      },
+      {
+        "class":"Team Project",
+        "type":"Project Work",
+        "location":"Boyd Orr - 715",
+        "start":14
+      }
+    ]
+  },
+  {
+    "day":"Thu",
+    "classes":[
+      {
+        "class":"Algorithmics",
+        "type":"Lecture",
+        "location":"Boyd Orr - 222",
+        "start":13
+      },
+      {
+        "class":"Algorithmics",
+        "type":"Lab",
+        "location":"Boyd Orr - 720",
+        "start":17
+      }
+    ]
+  },
+  {
+    "day":"Fri",
+    "classes":[
+      {
+        "class":"HCS",
+        "type":"Lecture",
+        "location":"Charles Wilson - 201",
+        "start":11
+      },
+      {
+        "class":"Data Fundamentals",
+        "type":"Lecture",
+        "location":"Boyd Orr - 222",
+        "start":15
+      }
+    ]
+  }
+]

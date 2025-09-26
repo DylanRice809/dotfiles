@@ -1,0 +1,47 @@
+(defwidget media_player []
+  (eventbox :onhover "eww update reveal_player=true"
+            :onhoverlost "eww update reveal_player=false"
+            :visible {current_track == "{}" ? false : current_track == "" ? false : true}
+            
+    (box :orientation "v" :class "media_widget" 
+         :space-evenly false
+      (revealer :reveal reveal_player :transition "slideup"
+                :duration "1s"
+        (box :space-evenly false :orientation "v"
+          (box :space-evenly false
+            (box  :space-evenly false
+              (box :valign "center" :halign "center" :orientation "v"
+                (label :class "title" 
+                      :text current_track :halign "start"
+                      :wrap true :xalign 0)
+                (label :class "artist" 
+                      :text artist :halign "start")
+              )
+            )
+            (box :class "art" 
+                :style "background-image: url('${art}')"
+                :halign "center" :valign "center")
+          )
+          (box :space-evenly true
+            (button :class "pause-button loop" :onclick "playerctl shuffle Toggle" "󰒟")
+            (button :class "pause-button skip" :onclick "playerctl previous" "")
+            (button :class "pause-button play" :onclick "playerctl play-pause" "${play_pause == "Paused" ? "󰐌" : "󰏥"}")
+            (button :class "pause-button skip" :onclick "playerctl next" "")
+            (button :class "pause-button loop" 
+                    :onclick "eww update loop='${loop == true ? false : true}' && playerctl loop ${loop == true ? "Playlist" : "None"}"
+                    "${loop == true ? "󰑗" : "󰑖"}")
+          )
+        )
+      )
+      (box :space-evenly false :spacing 10
+        (button :class "pause-button" :onclick "playerctl play-pause" "${play_pause == "Paused" ? "󰐊" : "󰏤"}")
+        (label :text position)
+        (scale :class "song-scrubber"
+               :min 0 :max {length / 1000000} 
+               :value {now / 1000000}
+               :onchange "playerctl position {}")
+        (label :text {current_track} :limit-width 30)
+      )
+    )
+  )
+)

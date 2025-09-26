@@ -1,0 +1,8 @@
+(defwidget next_class []
+  (box :orientation "v" :class "next_class"
+    (label :class "class-text class" :text "${next_class_poll['class']}")
+    (label :class "class-text type" :text "${next_class_poll['type']}")
+    (label :class "class-text location" :text "${next_class_poll['location']}")
+    (label :class "class-text start" :text "${next_class_poll['start']}:00")
+  )
+)

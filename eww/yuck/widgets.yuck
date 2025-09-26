@@ -1,0 +1,4 @@
+(include "yuck/widgets/topbar-widgets.yuck")
+(include "yuck/widgets/botbar-widgets.yuck")
+(include "yuck/widgets/media-player.yuck")
+(include "yuck/widgets/back-clock.yuck")

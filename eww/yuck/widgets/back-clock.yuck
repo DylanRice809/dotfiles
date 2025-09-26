@@ -1,0 +1,3 @@
+(defwidget back_clock []
+  (label :class "big-clock" :text "${_time['hour']} : ${_time['min']}")
+)

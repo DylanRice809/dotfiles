@@ -1,0 +1,225 @@
+@import "palettes/mocha.css";
+
+.network,
+.button {
+  transition-property: all;
+  transition-duration: 0.2s;
+}
+
+.taskbar {
+  margin: 0.3rem 0;
+  border-radius: 0 0 3rem 3rem;
+  padding: 0 1rem;
+  background-color: @tuatara;
+}
+
+.end,
+.workspaces {
+  border-radius: 2rem;
+  padding: 0.4rem;
+  background-color: @tuatara;
+  margin: 0 1rem;
+}
+
+.workspace {
+  font-size: 16pt;
+  padding: 0rem 1.5rem;
+  border-radius: 2rem;
+  margin: 0px 0.2rem;
+  border-style: solid;
+  border-color: @yellow-back;
+}
+
+.active {
+  background-color: @yellow-back;
+  color: @tuatara;
+}
+
+.inactive {
+  background-color: @tuatara;
+  color: @yellow-back;
+}
+
+.centerpiece {
+  background-color: @tuatara;
+  border-radius: 2rem;
+  padding: 1rem;
+  color: @yellow-back;
+}
+
+.clock {
+  margin: 0 0.4rem;
+  color: @yellow-back;
+}
+
+.battery {
+  color: @yellow-back;
+}
+
+.network {
+  color: @yellow-back;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.network:hover {
+  background-color: @yellow-back;
+  color: @tuatara;
+}
+
+.network_selector_box {
+  border-radius: 2rem;
+  padding: 2rem;
+  background-color: @tuatara;
+}
+
+.network-title {
+  color: @tuatara;
+  background-color: @yellow-back;
+  border-radius: 2rem;
+  padding: 0.2rem 0.4rem;
+}
+
+.button {
+  color: @yellow-back;
+  background-color: @tuatara;
+  border-color: @yellow-back;
+}
+
+.button:hover {
+  color: @tuatara;
+  background-color: @yellow-back;
+  border-color: @tuatara;
+}
+
+.botbar {
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0 1rem;
+}
+
+.special_widget {
+  background-color: @tuatara;
+  border-radius: 2rem 2rem 0 0;
+}
+
+.bottom_widgets {
+  border-radius: 2rem 2rem 0 0;
+  color: @yellow-back;
+  background-color: @tuatara;
+  min-height: 2rem;
+}
+
+.bottom_widgets:hover {
+  border-radius: 2rem 2rem 0 0;
+  color: @tuatara;
+  background-color: @yellow-back;
+  border-color: @tuatara;
+}
+
+.bluetooth {
+  border-radius: 2rem 2rem 0 0;
+}
+
+.slider {
+  color: @yellow-back;
+}
+
+.slider trough highlight {
+  background-color: @yellow-back;
+}
+
+.slider slider {
+  background-color: @yellow-back;
+}
+
+.big-sym {
+  font-size: 15pt;
+  color: @yellow-back;
+}
+
+.clock,
+.media_player,
+.network_selector {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 0;
+}
+
+.media_widget {
+  background-color: @tuatara;
+  border-radius: 2rem 2rem 0 0;
+  padding: 0.5rem;
+  color: @yellow-back
+}
+
+.pause-button {
+  background-color: rgba(0, 0, 0, 0);
+  color: @yellow-back;
+  margin: 0 0.2rem;
+}
+
+.pause-button:hover {
+  background-color: @yellow-back;
+  color: @tuatara;
+}
+
+.art {
+  min-width: 12rem;
+  min-height: 12rem;
+  background-position: center;
+  background-size: cover;
+}
+
+.title {
+  font-size: 18pt;
+}
+
+.album {
+  font-size: 14pt;
+}
+
+.song-scrubber {
+  min-width: 6rem;
+}
+
+.special_widget_spacer {
+  background-color: @tuatara;
+  border-radius: 2rem 2rem 0 0;
+}
+
+.big-clock {
+  font-family: "Beautiful Police Officer";
+  font-size: 80pt;
+  color: @tuatara;
+}
+
+.media-buttons {
+  background-color: rgba(0, 0, 0, 0);
+  color: @yellow-back;
+}
+
+.media-buttons:hover {
+  background-color: rgba(0, 0, 0, 0);
+  color: @tuatara;
+}
+
+.play {
+  font-size: 24pt;
+}
+
+.next_class {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.class-text {
+  font-weight: bold;
+  color: @tuatara;
+}
+
+.class {
+  font-size: 24pt;
+}
+
+.start,
+.location,
+.type {
+  font-size: 18pt;
+}

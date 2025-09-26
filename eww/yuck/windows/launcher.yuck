@@ -1,0 +1,13 @@
+(defwidget launcher []
+  (revealer :reveal reveal_launcher
+    (box :orientation "v" :space-evenly false
+      (input :value "Type" 
+             :onchange "eww update search_results=\"$(bash ~/.config/eww/scripts/launcher.sh | jq -c '[.[] | select(.name | test(\"{}\"; \"i\"))]')\"")
+      (box :orientation "v" :space-evenly false
+        (for app in search_results
+          (label :text "${app['name']}")
+        )
+      )
+    )
+  )
+)

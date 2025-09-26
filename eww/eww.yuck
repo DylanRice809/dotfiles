@@ -1,0 +1,45 @@
+(include "yuck/setup.yuck")
+(include "yuck/windows.yuck")
+(include "yuck/widgets.yuck")
+
+(defvar reveal_volume false)
+(defvar reveal_network false)
+(defvar reveal_player false)
+(defvar reveal_launcher false)
+(defvar loop true)
+(defvar search_results "[]")
+(defvar center "0,0")
+
+(defpoll _time :interval "5s" `date +'{"hour":"%H","min":"%M"}'`)
+
+(defpoll get_volume :initial "{\"volume\":\"100\",\"mute\":\"no\"}" 
+                    :interval "0.5s"
+                    `bash scripts/get-vol.sh`)
+
+(defpoll networks_poll :initial "[]" 
+                       :interval "5s" 
+                       `bash scripts/network-tool.sh`)
+
+(defpoll network_connection :initial '{"name":"~","strength":"100"}' 
+                            :interval "5s"
+                            `bash scripts/network.sh`)
+
+(defpoll next_class_poll :initial ""
+                         :interval "5s"
+                         `bash scripts/next-class.sh`)
+
+(deflisten hypr_events :initial '[{"id":"1","class":"active"}]' 
+                       "bash scripts/hypr_listener.sh")
+
+(deflisten active_window :initial "~" 
+                         "bash scripts/active-window.sh")
+
+(deflisten play_pause :initial "Paused" "playerctl status -F")
+(deflisten current_track :initial "" "playerctl metadata -F 'title'")
+(deflisten art :initial "" "playerctl metadata -F 'mpris:artUrl'")
+(deflisten artist :initial "" "playerctl metadata -F 'artist'")
+(deflisten album :initial "" "playerctl metadata -F 'album'")
+(deflisten position :initial "" "playerctl metadata -F --format '{{duration(position)}}/{{duration(mpris:length)}}'")
+(deflisten now :initial "" "playerctl metadata -F --format 'position'")
+(deflisten length :initial "" "playerctl metadata -F --format '{{mpris:length}}'")
+
